@@ -1,6 +1,6 @@
 FROM tensorflow/tensorflow:latest-py3
 
-RUN git clone https://github.com/juan-sv/MNIST.git
+#RUN git clone https://github.com/juan-sv/MNIST.git
 #RUN ln -s /incubator-mxnet/example/image-classification/common common
 #RUN ln -s /incubator-mxnet/example/image-classification/symbols symbols
 
