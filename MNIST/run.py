@@ -29,3 +29,4 @@ if __name__ == '__main__':
     _l, ev = a.model.evaluate(a.testDS.x, a.testDS.y_cat)
 
     print('\ntest_accuracy={}'.format(ev))
+#
