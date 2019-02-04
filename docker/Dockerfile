@@ -3,6 +3,7 @@ FROM tensorflow/tensorflow:latest-py3
 RUN cat /etc/os-release
 RUN lsb_release -a
 
+RUN apt-get update
 RUN apt-get install git-core
 #RUN sudo apt-get install git
 RUN git clone https://github.com/juan-sv/MNIST.git
