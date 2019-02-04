@@ -1,8 +1,9 @@
 import argparse
-# from MNIST import MNIST
-from MNIST.MNIST import MNIST
+from MNIST import MNIST
+from tensorflow.python.keras.callbacks import LambdaCallback
 
 if __name__ == '__main__':
+
     parser = argparse.ArgumentParser(description='MNIST')
 
     parser.add_argument('--optimizer', type=str, default='Adam', dest='optimizer',
@@ -13,6 +14,8 @@ if __name__ == '__main__':
                         help='lr')
     parser.add_argument('--num-layers', type=int, default=1, dest='numlayers',
                         help='numlayers')
+    parser.add_argument('--batch-size', type=int, default=64, dest='batchsize',
+                        help='--batch-size')
 
 
     args = parser.parse_args()
@@ -22,11 +25,27 @@ if __name__ == '__main__':
     lr = args.lr
     numlayer = args.numlayers
 
-    print('Optimizer: {}\nEpochs: {}\nLearning rate: {}\nNum layers: {} '.format(optimizer, epochs, lr, numlayer))
+    print('Optimizer: {}\nEpochs: {}\nLearning rate: {}\nNum layers: {}\nBatch size: {}'.format(optimizer,
+                                                                                                epochs,
+                                                                                                lr,
+                                                                                                numlayer,
+                                                                                                args.batchsize))
 
     a = MNIST(optimizer=optimizer)
-    a.train(epochs=epochs)
-    _l, ev = a.model.evaluate(a.testDS.x, a.testDS.y_cat)
+
+    # epoch 1:
+    # loss=0.3
+    # recall=0.5
+    # precision=0.4
+    log = lambda epoch, logs: print('epoch {}\nloss={}\nacc={}\nval_loss={}\nval_acc={}'.format(epoch,
+                                                                                                logs['loss'],
+                                                                                                logs['acc'],
+                                                                                                logs['val_loss'],
+                                                                                                logs['val_acc']))
+    cb = [LambdaCallback(on_epoch_end=log)]
+    a.train(epochs=epochs, callbacks=cb)
+
+    _l, ev = a.model.evaluate(a.testDS.x, a.testDS.y_cat, verbose=0)
 
     print('\ntest_accuracy={}'.format(ev))
 #

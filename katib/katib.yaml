@@ -9,11 +9,13 @@ spec:
   studyName: mnist
   owner: crd
   optimizationtype: minimize
-  objectivevaluename: test_accuracy
-  optimizationgoal: 0.90
+  objectivevaluename: val_acc
+  optimizationgoal: 0.96
   requestcount: 4
   metricsnames:
-    - test_accuracy
+    - loss
+    - acc
+    - val_loss
   parameterconfigs:
     - name: --lr
       parametertype: double
@@ -31,7 +33,6 @@ spec:
         list:
         - sgd
         - adam
-        - ftrl
   workerSpec:
     goTemplate:
         rawTemplate: |-

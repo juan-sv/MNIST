@@ -44,7 +44,7 @@ class MNIST:
                            loss='categorical_crossentropy',
                            metrics=['accuracy'])
 
-    def train(self, epochs=1):
+    def train(self, epochs=1, callbacks=None):
 
         tb = None
         # tb = [TensorBoard(log_dir="C:/Temp/logs/{}".format(log))]
@@ -61,4 +61,5 @@ class MNIST:
                        y=self.trainDS.y_cat,
                        validation_data=(self.testDS.x, self.testDS.y_cat),
                        epochs=epochs,
-                       callbacks=tb)
+                       callbacks=callbacks,
+                       verbose=0)
