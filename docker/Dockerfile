@@ -4,8 +4,8 @@ FROM tensorflow/tensorflow:latest-py3
 #RUN ln -s /incubator-mxnet/example/image-classification/common common
 #RUN ln -s /incubator-mxnet/example/image-classification/symbols symbols
 
-ADD https://github.com/juan-sv/MNIST/blob/master/MNIST/MNIST.py
-ADD https://github.com/juan-sv/MNIST/blob/master/MNIST/run.py
+ADD https://github.com/juan-sv/MNIST/blob/master/MNIST/MNIST.py /
+ADD https://github.com/juan-sv/MNIST/blob/master/MNIST/run.py /
 #ADD MNIST/MNIST.py /
 #ADD MNIST/run.py /
 #ADD requirements.txt /
