@@ -46,7 +46,7 @@ spec:
               spec:
                 containers:
                 - name: {{.WorkerID}}
-                  image: juansv/mnist:katib
+                  image: juansv/mnist:latest
                   command:
                   - "python"
                   - "run.py"
