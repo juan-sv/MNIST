@@ -37,7 +37,7 @@ if __name__ == '__main__':
     # loss=0.3
     # recall=0.5
     # precision=0.4
-    log = 'epoch {}:\nloss={}\nacc={}\nval_loss={}\nval_acc={}\n'
+    log = '\nepoch {}:\nloss={}\nacc={}\nval_loss={}\nval_acc={}\n'
     cb = [LambdaCallback(on_epoch_end=lambda epoch, logs: print(log.format(epoch,
                                                                            logs['loss'],
                                                                            logs['acc'],

@@ -27,11 +27,11 @@ spec:
       feasible:
         min: "2"
         max: "5"
-    - name: --epochs
-      parametertype: int
-      feasible:
-        min: "100"
-        max: "200"
+#    - name: --epochs
+#      parametertype: int
+#      feasible:
+#        min: "100"
+#        max: "200"
     - name: --optimizer
       parametertype: categorical
       feasible:
@@ -55,6 +55,7 @@ spec:
                   command:
                   - "python"
                   - "run.py"
+                  - "--epochs=10"
                   {{- with .HyperParameters}}
                   {{- range .}}
                   - "{{.Name}}={{.Value}}"
