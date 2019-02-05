@@ -8,7 +8,7 @@ if __name__ == '__main__':
 
     parser.add_argument('--optimizer', type=str, default='Adam', dest='optimizer',
                         help='Optimizer for NN: default Adam')
-    parser.add_argument('--epochs', type=int, default=2, dest='epochs',
+    parser.add_argument('--epochs', type=int, default=10, dest='epochs',
                         help='Number of epochs for training (default 2')
     parser.add_argument('--lr', type=float, default=0.1, dest='lr',
                         help='lr')
@@ -37,15 +37,14 @@ if __name__ == '__main__':
     # loss=0.3
     # recall=0.5
     # precision=0.4
-    log = lambda epoch, logs: print('epoch {}\nloss={}\nacc={}\nval_loss={}\nval_acc={}'.format(epoch,
-                                                                                                logs['loss'],
-                                                                                                logs['acc'],
-                                                                                                logs['val_loss'],
-                                                                                                logs['val_acc']))
-    cb = [LambdaCallback(on_epoch_end=log)]
+    log = 'epoch {}:\nloss={}\nacc={}\nval_loss={}\nval_acc={}\n'
+    cb = [LambdaCallback(on_epoch_end=lambda epoch, logs: print(log.format(epoch,
+                                                                           logs['loss'],
+                                                                           logs['acc'],
+                                                                           logs['val_loss'],
+                                                                           logs['val_acc'])))]
     a.train(epochs=epochs, callbacks=cb)
 
     _l, ev = a.model.evaluate(a.testDS.x, a.testDS.y_cat, verbose=0)
 
     print('\ntest_accuracy={}'.format(ev))
-#
