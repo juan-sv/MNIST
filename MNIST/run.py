@@ -45,6 +45,6 @@ if __name__ == '__main__':
                                                                            logs['val_acc'])))]
     a.train(epochs=epochs, callbacks=cb)
 
-    _l, ev = a.model.evaluate(a.testDS.x, a.testDS.y_cat, verbose=0)
-
-    print('\ntest_accuracy={}'.format(ev))
+    # _l, ev = a.model.evaluate(a.testDS.x, a.testDS.y_cat, verbose=0)
+    #
+    # print('\ntest_accuracy={}'.format(ev))

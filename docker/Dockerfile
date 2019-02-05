@@ -25,4 +25,4 @@ RUN git clone https://github.com/juan-sv/MNIST.git
 
 #CMD [ "cd", "./MNIST" ]
 #CMD [ "python", "../optimize_MNIST.py" ]
-WORKDIR ./
+WORKDIR ./MNIST/MNIST
