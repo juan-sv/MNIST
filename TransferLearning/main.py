@@ -57,9 +57,9 @@ if __name__ == '__main__':
     log = '\nepoch {}:\nloss={}\nacc={}\nval_loss={}\nval_acc={}\n'
     cb = [LambdaCallback(on_epoch_end=lambda epoch, logs: print(log.format(epoch,
                                                                            logs['loss'],
-                                                                           logs['acc'],
+                                                                           logs['categorical_accuracy'],
                                                                            logs['val_loss'],
-                                                                           logs['val_acc'])))]
+                                                                           logs['val_categorical_accuracy'])))]
     model.fit(x=x_train,
               y=to_categorical(y_train, 10),
               validation_data=(x_test, to_categorical(y_test, 10)),

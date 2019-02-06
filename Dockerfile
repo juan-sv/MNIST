@@ -1,8 +1,8 @@
 FROM tensorflow/tensorflow:latest-py3
 
 # print OS version
-RUN cat /etc/os-release
-RUN lsb_release -a
+#RUN cat /etc/os-release
+#RUN lsb_release -a
 
 # Install git
 RUN apt-get update
