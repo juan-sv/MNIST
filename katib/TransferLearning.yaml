@@ -4,7 +4,7 @@ metadata:
   namespace: kubeflow
   labels:
     controller-tools.k8s.io: "1.0"
-  name: mnist
+  name: TransferLearning
 spec:
   studyName: TransferLearning
   owner: crd
@@ -55,7 +55,7 @@ spec:
                   command:
                   - "python"
                   - "/TransferLearning/main.py"
-                  - "--epochs=10"
+                  - "--epochs=5"
                   {{- with .HyperParameters}}
                   {{- range .}}
                   - "{{.Name}}={{.Value}}"
