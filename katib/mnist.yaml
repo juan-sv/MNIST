@@ -54,7 +54,7 @@ spec:
                   image: juansv/katib:latest
                   command:
                   - "python"
-                  - "mnist/run.py"
+                  - "MNIST/run.py"
                   - "--epochs=10"
                   {{- with .HyperParameters}}
                   {{- range .}}
