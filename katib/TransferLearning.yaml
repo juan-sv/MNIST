@@ -4,7 +4,7 @@ metadata:
   namespace: kubeflow
   labels:
     controller-tools.k8s.io: "1.0"
-  name: TransferLearning
+  name: transfer_learning
 spec:
   studyName: TransferLearning
   owner: crd
