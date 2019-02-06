@@ -54,7 +54,7 @@ spec:
                   image: juansv/mnist:latest
                   command:
                   - "python"
-                  - "/mnist/run.py"
+                  - "mnist/run.py"
                   - "--epochs=10"
                   {{- with .HyperParameters}}
                   {{- range .}}

@@ -54,7 +54,7 @@ spec:
                   image: juansv/katib:latest
                   command:
                   - "python"
-                  - "/TransferLearning/main.py"
+                  - "TransferLearning/main.py"
                   - "--epochs=5"
                   {{- with .HyperParameters}}
                   {{- range .}}
