@@ -65,4 +65,4 @@ if __name__ == '__main__':
               validation_data=(x_test, to_categorical(y_test, 10)),
               epochs=args.epochs,
               callbacks=cb,
-              verbose=False)
+              verbose=True)
