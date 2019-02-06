@@ -4,9 +4,9 @@ metadata:
   namespace: kubeflow
   labels:
     controller-tools.k8s.io: "1.0"
-  name: transfer_learning
+  name: transfer-learning
 spec:
-  studyName: transfer_learning
+  studyName: transfer-learning
   owner: crd
   optimizationtype: maximize
   objectivevaluename: val_acc
