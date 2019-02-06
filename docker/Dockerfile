@@ -1,28 +1,15 @@
 FROM tensorflow/tensorflow:latest-py3
 
+# print OS version
 RUN cat /etc/os-release
 RUN lsb_release -a
 
+# Install git
 RUN apt-get update
 RUN apt-get -y install git-core
-#RUN sudo apt-get install git
+
+# Clone git repository
 RUN git clone https://github.com/juan-sv/MNIST.git
-#RUN ln -s /incubator-mxnet/example/image-classification/common common
-#RUN ln -s /incubator-mxnet/example/image-classification/symbols symbols
 
-
-#ADD https://github.com/juan-sv/MNIST/blob/master/MNIST/MNIST.py /
-#ADD https://github.com/juan-sv/MNIST/blob/master/MNIST/run.py /
-#ADD MNIST/MNIST.py /
-#ADD MNIST/run.py /
-#ADD requirements.txt /
-#ADD common /common
-
-#
-#RUN curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
-#RUN python3 get-pip.py --user
-#RUN pip install -r ../requirements.txt
-
-#CMD [ "cd", "./MNIST" ]
-#CMD [ "python", "../optimize_MNIST.py" ]
-WORKDIR ./MNIST/MNIST
+# Set working directory
+WORKDIR ./katib/
